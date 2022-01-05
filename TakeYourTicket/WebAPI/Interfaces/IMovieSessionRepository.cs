@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Threading.Tasks;
 using WebAPI.Models;
 
 namespace WebAPI.Interfaces
 {
     public interface IMovieSessionRepository
     {
-        public void Create(MovieSession movieSession);
-        public void Update(MovieSession movieSession);
+        public Task<MovieSession> Create(MovieSession movieSession);
+        public Task<MovieSession> Update(MovieSession movieSession);
         public MovieSession FindByMovieNameAndDay(string movieName, DateTime? date);
         public void Commit();
     }

@@ -1,11 +1,12 @@
-﻿using WebAPI.Models;
+﻿using System.Threading.Tasks;
+using WebAPI.Models;
 
 namespace WebAPI.Interfaces
 {
     public interface IMovieRepository
     {
-        public void Create(Movie movie);
-        public void Update(Movie movie);
-        public void Commit();
+        public Task<Movie> Create(Movie movie);
+        public Task<Movie> Update(Movie movie);
+        public Task Commit();
     }
 }
