@@ -14,6 +14,7 @@ services:
     ports:
       - "1433:1433"
     environment:
+      SA_USER: "user"
       SA_PASSWORD: "P@ss@0rd!!!"
       ACCEPT_EULA: "Y"
       MSSQL_PID: "Express"

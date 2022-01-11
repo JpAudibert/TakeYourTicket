@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 using WebAPI.Interfaces;
 using WebAPI.Models;
-using WebAPI.Repositories;
+using WebAPI.Infrastructure.EF.Repositories;
 
 namespace Tests
 {
