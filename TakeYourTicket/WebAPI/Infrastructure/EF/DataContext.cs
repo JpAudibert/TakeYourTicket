@@ -11,10 +11,12 @@ namespace WebAPI.Infrastructure.EF
         }
 
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Session> MovieSessions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new MovieType());
+            modelBuilder.ApplyConfiguration(new SessionType());
         }
 
     }

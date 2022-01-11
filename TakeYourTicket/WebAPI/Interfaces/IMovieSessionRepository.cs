@@ -6,9 +6,9 @@ namespace WebAPI.Interfaces
 {
     public interface IMovieSessionRepository
     {
-        public Task<MovieSession> Create(MovieSession movieSession);
-        public Task<MovieSession> Update(MovieSession movieSession);
-        public MovieSession FindByMovieNameAndDay(string movieName, DateTime? date);
+        public Task<Session> Create(Session movieSession);
+        public Task<Session> Update(Session movieSession);
+        public Session FindByMovieNameAndDay(string movieName, DateTime? date);
         public void Commit();
     }
 }
