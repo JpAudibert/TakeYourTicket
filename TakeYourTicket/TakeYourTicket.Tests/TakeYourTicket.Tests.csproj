@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebAPI\WebAPI.csproj" />
+    <ProjectReference Include="..\TakeYourTicket\TakeYourTicket.csproj" />
   </ItemGroup>
 
 </Project>

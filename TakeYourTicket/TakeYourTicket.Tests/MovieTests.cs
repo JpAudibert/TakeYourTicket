@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
-using WebAPI.Interfaces;
-using WebAPI.Models;
+using TakeYourTicket.Interfaces;
+using TakeYourTicket.Models;
 using WebAPI.Infrastructure.EF.Repositories;
 
 namespace Tests

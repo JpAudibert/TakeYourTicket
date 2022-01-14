@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using WebAPI.Models;
+using TakeYourTicket.Models;
 
-namespace WebAPI.Interfaces
+namespace TakeYourTicket.Interfaces
 {
     public interface IMovieRepository
     {

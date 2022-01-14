@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebAPI.Infrastructure.EF.Types;
-using WebAPI.Models;
+using TakeYourTicket.Infrastructure.EF.Types;
+using TakeYourTicket.Models;
 
-namespace WebAPI.Infrastructure.EF
+namespace TakeYourTicket.Infrastructure.EF
 {
     public class DataContext : DbContext
     {

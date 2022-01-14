@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace WebAPI.Models
+namespace TakeYourTicket.Models
 {
     public sealed class Movie
     {
         public Guid Id { get; }
-        public string Title { get; set; }
-        public int Duration { get; set; }
-        public string Synopsis { get; set; }
+        public string Title { get; }
+        public int Duration { get; }
+        public string Synopsis { get; }
+
+        public IEnumerable<Session> Sessions;
 
         public Movie() { }
 

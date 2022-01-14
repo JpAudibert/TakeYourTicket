@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
-using WebAPI.Models;
+using TakeYourTicket.Models;
 
-namespace WebAPI.Infrastructure.EF.Types
+namespace TakeYourTicket.Infrastructure.EF.Types
 {
     public class SessionType : IEntityTypeConfiguration<Session>
     {

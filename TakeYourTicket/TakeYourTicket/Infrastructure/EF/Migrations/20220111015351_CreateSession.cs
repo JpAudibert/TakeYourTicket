@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WebAPI.Migrations
+namespace TakeYourTicket.Migrations
 {
     public partial class CreateSession : Migration
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using WebAPI.Interfaces;
-using WebAPI.Models;
+using TakeYourTicket.Interfaces;
+using TakeYourTicket.Models;
 
 namespace WebAPI.Infrastructure.EF.Repositories
 {
