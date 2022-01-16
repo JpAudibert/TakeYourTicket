@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeYourTicket.Tests", "Tak
 		{BC9FFFFD-FC89-45D7-8AAE-7FA69D1D6EA9} = {BC9FFFFD-FC89-45D7-8AAE-7FA69D1D6EA9}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeYourTicket", "TakeYourTicket\TakeYourTicket.csproj", "{BC9FFFFD-FC89-45D7-8AAE-7FA69D1D6EA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeYourTicket", "TakeYourTicket\TakeYourTicket.csproj", "{BC9FFFFD-FC89-45D7-8AAE-7FA69D1D6EA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

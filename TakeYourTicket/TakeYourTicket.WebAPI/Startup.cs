@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TakeYourTicket.Infrastructure.EF;
+using TakeYourTicket.Infrastructure.EF.Repositories;
+using TakeYourTicket.Interfaces;
 
 namespace WebAPI
 {
@@ -28,14 +32,23 @@ namespace WebAPI
         {
 
             services.AddControllers();
+            services.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new ApiVersion(1, 0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ReportApiVersions = true;
+            });
+
+            services.AddScoped<IMovieRepository, MovieRepository>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
             });
-            //services.AddDbContext<DataContext>(service =>
-            //{
-            //    service.UseSqlServer(Configuration.GetConnectionString("TakeYourTicket"));
-            //});
+            services.AddDbContext<DataContext>(service =>
+            {
+                service.UseSqlServer(Configuration.GetConnectionString("TakeYourTicket"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
