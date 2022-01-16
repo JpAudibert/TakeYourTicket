@@ -15,8 +15,8 @@ namespace TakeYourTicket.Infrastructure.EF.Types
             builder.Property(movie => movie.Title).HasColumnType("varchar(50)");
             builder.Property(movie => movie.Duration);
             builder.Property(movie => movie.Synopsis).HasColumnType("varchar(150)");
-            builder.Property<DateTime>("CreatedAt");
-            builder.Property<DateTime>("UpdatedAt");
+            builder.Property<DateTime>("CreatedAt").ValueGeneratedOnAdd().HasDefaultValueSql("getdate()");
+            builder.Property<DateTime>("UpdatedAt").ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("getdate()");
         }
     }
 }

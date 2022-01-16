@@ -3,19 +3,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TakeYourTicket.Migrations
 {
-    public partial class CreateSession : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "updatedAt",
-                table: "Movie",
-                newName: "UpdatedAt");
-
-            migrationBuilder.RenameColumn(
-                name: "createdAt",
-                table: "Movie",
-                newName: "CreatedAt");
+            migrationBuilder.CreateTable(
+                name: "Movie",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Title = table.Column<string>(type: "varchar(50)", nullable: true),
+                    Duration = table.Column<int>(type: "int", nullable: false),
+                    Synopsis = table.Column<string>(type: "varchar(150)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getdate()"),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getdate()")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Movie", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Session",
@@ -25,6 +31,7 @@ namespace TakeYourTicket.Migrations
                     ExhibitionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NumberOfSeats = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    MovieId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -37,17 +44,10 @@ namespace TakeYourTicket.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Movie");
+
+            migrationBuilder.DropTable(
                 name: "Session");
-
-            migrationBuilder.RenameColumn(
-                name: "UpdatedAt",
-                table: "Movie",
-                newName: "updatedAt");
-
-            migrationBuilder.RenameColumn(
-                name: "CreatedAt",
-                table: "Movie",
-                newName: "createdAt");
         }
     }
 }

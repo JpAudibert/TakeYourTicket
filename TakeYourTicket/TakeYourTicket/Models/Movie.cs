@@ -6,11 +6,9 @@ namespace TakeYourTicket.Models
     public sealed class Movie
     {
         public Guid Id { get; }
-        public string Title { get; }
-        public int Duration { get; }
-        public string Synopsis { get; }
-
-        public IEnumerable<Session> Sessions;
+        public string Title { set; get; }
+        public int Duration { set; get; }
+        public string Synopsis { set; get; }
 
         public Movie() { }
 
