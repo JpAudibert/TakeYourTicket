@@ -14,7 +14,7 @@ namespace TakeYourTicket.Infrastructure.EF
         }
 
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<Session> MovieSessions { get; set; }
+        public DbSet<Session> Sessions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
