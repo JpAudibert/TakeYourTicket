@@ -10,6 +10,8 @@ namespace TakeYourTicket.Models
         public int Duration { set; get; }
         public string Synopsis { set; get; }
 
+        public IEnumerable<Session> Sessions { set; get; }
+
         public Movie() { }
 
         public Movie(Movie movie)

@@ -15,11 +15,12 @@ namespace TakeYourTicket.Infrastructure.EF.Types
             builder.Property(session => session.ExhibitionDate);
             builder.Property(session => session.NumberOfSeats);
             builder.Property(session => session.Price).HasColumnType("decimal(10,2)");
-            //builder
-            //    .HasMany(session => session.Movie)
-            //    .WithOne()
-            //    .HasForeignKey(session => session.MovieId)
-            //    .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .HasOne<Movie>(session => session.Movie)
+                .WithMany(movie => movie.Sessions)
+                .HasForeignKey(session => session.MovieId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property<DateTime>("CreatedAt").ValueGeneratedOnAdd().HasDefaultValueSql("getdate()");
             builder.Property<DateTime>("UpdatedAt").ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("getdate()");
