@@ -41,15 +41,17 @@ namespace WebAPI
 
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<ISessionRepository, SessionRepository>();
+            services.AddScoped<ISaleRepository, SaleRepository>();
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TakeYourTicket", Version = "v1" });
             });
             services.AddDbContext<DataContext>(service =>
             {
                 service.UseSqlServer(Configuration.GetConnectionString("TakeYourTicket"));
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

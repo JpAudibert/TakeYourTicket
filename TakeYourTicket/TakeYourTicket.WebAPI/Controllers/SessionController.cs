@@ -14,7 +14,7 @@ namespace TakeYourTicket.WebAPI.Controllers
     [ApiVersion("1")]
     public class SessionController : Controller
     {
-        private ISessionRepository _sessionRepository;
+        private readonly ISessionRepository _sessionRepository;
 
         public SessionController(ISessionRepository sessionRepository)
         {

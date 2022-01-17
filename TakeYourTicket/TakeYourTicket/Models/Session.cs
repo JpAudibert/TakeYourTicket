@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TakeYourTicket.Models
 {
@@ -9,7 +10,9 @@ namespace TakeYourTicket.Models
         public int NumberOfSeats { get; set; }
         public double Price { get; set; }
         public Guid MovieId { get; set; }
+
         public Movie Movie { get; set; }
+        public IEnumerable<Sale> Sales { get; set; }
 
         public Session()
         { }

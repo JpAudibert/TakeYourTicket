@@ -15,6 +15,7 @@ namespace TakeYourTicket.Infrastructure.EF
 
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Session> Sessions { get; set; }
+        public DbSet<Sale> Sales { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,6 +29,7 @@ namespace TakeYourTicket.Infrastructure.EF
         {
             modelBuilder.ApplyConfiguration(new MovieType());
             modelBuilder.ApplyConfiguration(new SessionType());
+            modelBuilder.ApplyConfiguration(new SaleType());
         }
 
     }

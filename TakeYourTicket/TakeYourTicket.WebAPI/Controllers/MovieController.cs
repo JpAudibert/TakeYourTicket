@@ -12,7 +12,7 @@ namespace WebAPI.Controllers
     [ApiVersion("1")]
     public class MovieController : Controller
     {
-        private IMovieRepository _movieRepository;
+        private readonly IMovieRepository _movieRepository;
 
         public MovieController(IMovieRepository movieRepository)
         {

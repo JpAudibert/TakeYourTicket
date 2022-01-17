@@ -101,6 +101,7 @@ namespace TakeYourTicket.Tests
         [TestCleanup]
         public void CleanUp()
         {
+            _dataContext.Movies.RemoveRange(_dataContext.Movies);
             _dataContext.Sessions.RemoveRange(_dataContext.Sessions);
             _dataContext.SaveChanges();
         }

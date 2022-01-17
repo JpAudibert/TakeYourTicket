@@ -2,20 +2,29 @@
 
 namespace TakeYourTicket.Models
 {
-    public class Sale
+    public sealed class Sale
     {
-        public Guid Id { get; set; }
-        public Guid MovieId { get; set; }
+        public Guid Id { get; }
+        public int Quantity { get; set; }
         public Guid SessionId { get; set; }
+
+        public Session Session { get; set; }
 
         public Sale()
         { }
 
-        public Sale(Guid movieId, Guid sessionId)
+        public Sale(int quantity, Guid sessionId)
         {
             Id = Guid.NewGuid();
-            MovieId = movieId;
+            Quantity = quantity;
             SessionId = sessionId;
+        }
+
+        public Sale(Sale sale)
+        {
+            Id = Guid.NewGuid();
+            Quantity = sale.Quantity;
+            SessionId = sale.SessionId;
         }
     }
 }

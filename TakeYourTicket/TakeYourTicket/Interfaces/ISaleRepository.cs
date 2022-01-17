@@ -5,6 +5,7 @@ namespace TakeYourTicket.Interfaces
 {
     public interface ISaleRepository
     {
-        public Task<Sale> Create();
+        public Task<Sale> Create(Sale sale);
+        public Task Commit();
     }
 }
