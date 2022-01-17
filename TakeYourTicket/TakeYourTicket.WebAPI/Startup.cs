@@ -40,6 +40,7 @@ namespace WebAPI
             });
 
             services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<ISessionRepository, SessionRepository>();
 
             services.AddSwaggerGen(c =>
             {
