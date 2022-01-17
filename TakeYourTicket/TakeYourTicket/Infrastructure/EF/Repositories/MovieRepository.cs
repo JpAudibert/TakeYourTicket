@@ -33,7 +33,7 @@ namespace TakeYourTicket.Infrastructure.EF.Repositories
 
         public async Task<Movie> Update(Movie movie, Guid movieId)
         {
-            Movie foundMovie = await _dataContext.Movies.FindAsync(movieId);
+            Movie foundMovie = await FindById(movieId);
 
             if (foundMovie == null)
             {
@@ -85,6 +85,11 @@ namespace TakeYourTicket.Infrastructure.EF.Repositories
             }
 
             return true;
+        }
+
+        public async Task<Movie> FindById(Guid id)
+        {
+            return await _dataContext.Movies.FindAsync(id);
         }
     }
 }
