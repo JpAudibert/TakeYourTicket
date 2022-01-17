@@ -6,7 +6,7 @@ using TakeYourTicket.Infrastructure.EF.Repositories;
 using TakeYourTicket.Infrastructure.EF;
 using System;
 
-namespace Tests
+namespace TakeYourTicket.Tests
 {
     [TestClass]
     public class MovieTests
