@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 using TakeYourTicket.Infrastructure.EF.InputModels;
@@ -13,32 +14,29 @@ namespace TakeYourTicket.WebAPI.Controllers
     public class SaleController : Controller
     {
         private readonly ISaleRepository _saleRepository;
+        private readonly ILogger<SaleController> _logger;
 
-        public SaleController(ISaleRepository saleRepository)
+        public SaleController(ISaleRepository saleRepository, ILogger<SaleController> logger)
         {
             _saleRepository = saleRepository;
+            _logger = logger;
         }
 
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateSaleInputModel sale)
         {
-            try
+            if (!Guid.TryParse(sale.SessionId, out var sessionId))
             {
-                if (!Guid.TryParse(sale.SessionId, out var sessionId))
-                {
-                    return BadRequest("Invalid Id");
-                }
-
-                Sale newSale = new Sale(sale.Quantity, sessionId);
-
-                Sale createdSale = await _saleRepository.Create(newSale);
-
-                return Ok();
+                return BadRequest("Invalid Id");
             }
-            catch (System.Exception)
-            {
-                return BadRequest();
-            }
+
+            Sale newSale = new Sale(sale.Quantity, sessionId);
+            _logger.LogInformation("Sale {saleId} created in memory", newSale.Id);
+
+            Sale createdSale = await _saleRepository.Create(newSale);
+            _logger.LogInformation("Sale {saleId} created in the database", createdSale.Id);
+
+            return Ok();
         }
     }
 }
