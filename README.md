@@ -10,7 +10,7 @@ POST - create movie
 
 PUT - update movie
 
-### MovieSession
+### Session
 
 GET - Find a session by movie name and day
 
@@ -18,7 +18,7 @@ POST - create session
 
 PUT - update session
 
-### TicketSelling
+### Sale
 
 POST - record a ticket selling
 
