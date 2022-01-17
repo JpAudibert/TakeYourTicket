@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TakeYourTicket.Infrastructure.EF.InputModels
 {
-    public class CreateNewMovieInputModel
+    public class CreateMovieInputModel
     {
         [Required(ErrorMessage = "Title is required.")]
         [MinLength(5, ErrorMessage = "Invalid title length.")]

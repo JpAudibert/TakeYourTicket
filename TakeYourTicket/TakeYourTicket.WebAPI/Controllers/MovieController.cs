@@ -20,7 +20,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateNewMovieInputModel newMovieInputModel)
+        public async Task<IActionResult> Create([FromBody] CreateMovieInputModel newMovieInputModel)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace WebAPI.Controllers
                 
                 if (updateMovie == null)
                 {
-                    return NotFound();
+                    return BadRequest();
                 }
 
                 Movie toUpdateMovie = new Movie(updateMovie.Title, updateMovie.Duration, updateMovie.Synopsis);
